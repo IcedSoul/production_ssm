@@ -56,7 +56,7 @@ public class DeviceListController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	@ResponseBody
-	private CustomResult insert(@Valid Device device, BindingResult bindingResult) throws Exception {
+	public CustomResult insert(@Valid Device device, BindingResult bindingResult) throws Exception {
 		CustomResult result;
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -72,7 +72,7 @@ public class DeviceListController {
 	
 	@RequestMapping(value="/update")
 	@ResponseBody
-	private CustomResult update(@Valid Device device, BindingResult bindingResult) throws Exception {
+	public CustomResult update(@Valid Device device, BindingResult bindingResult) throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
 			return CustomResult.build(100, fieldError.getDefaultMessage());
@@ -82,14 +82,14 @@ public class DeviceListController {
 	
 	@RequestMapping(value="/delete_batch")
 	@ResponseBody
-	private CustomResult deleteBatch(String[] ids) throws Exception {
+	public CustomResult deleteBatch(String[] ids) throws Exception {
 		CustomResult result = deviceService.deleteBatch(ids);
 		return result;
 	}
 	
 	@RequestMapping(value="/update_note")
 	@ResponseBody
-	private CustomResult updateNote(@Valid Device device, BindingResult bindingResult) throws Exception {
+	public CustomResult updateNote(@Valid Device device, BindingResult bindingResult) throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
 			return CustomResult.build(100, fieldError.getDefaultMessage());
@@ -99,7 +99,7 @@ public class DeviceListController {
 	
 	@RequestMapping(value="/update_all")
 	@ResponseBody
-	private CustomResult updateAll(@Valid Device device, BindingResult bindingResult) throws Exception {
+	public CustomResult updateAll(@Valid Device device, BindingResult bindingResult) throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
 			return CustomResult.build(100, fieldError.getDefaultMessage());

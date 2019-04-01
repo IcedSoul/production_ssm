@@ -58,7 +58,7 @@ public class UserController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	@ResponseBody
-	private CustomResult insert(@Valid SysUser user, BindingResult bindingResult) throws Exception {
+	public CustomResult insert(@Valid SysUser user, BindingResult bindingResult) throws Exception {
 		CustomResult result;
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -75,7 +75,7 @@ public class UserController {
 	
 	@RequestMapping(value="/update")
 	@ResponseBody
-	private CustomResult update(@Valid SysUser user, BindingResult bindingResult) throws Exception {
+	public CustomResult update(@Valid SysUser user, BindingResult bindingResult) throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
 			return CustomResult.build(100, fieldError.getDefaultMessage());
@@ -85,7 +85,7 @@ public class UserController {
 	
 	@RequestMapping(value="/update_all")
 	@ResponseBody
-	private CustomResult updateAll(@Valid SysUser user, BindingResult bindingResult) throws Exception {
+	public CustomResult updateAll(@Valid SysUser user, BindingResult bindingResult) throws Exception {
 		CustomResult result; 
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -101,14 +101,14 @@ public class UserController {
 	
 	@RequestMapping(value="/delete")
 	@ResponseBody
-	private CustomResult delete(String id) throws Exception {
+	public CustomResult delete(String id) throws Exception {
 		CustomResult result = userService.delete(id);
 		return result;
 	}
 	
 	@RequestMapping(value="/delete_batch")
 	@ResponseBody
-	private CustomResult deleteBatch(String[] ids) throws Exception {
+	public CustomResult deleteBatch(String[] ids) throws Exception {
 		CustomResult result = userService.deleteBatch(ids);
 		return result;
 	}

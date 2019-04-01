@@ -58,7 +58,7 @@ public class MaterialReceiveController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	@ResponseBody
-	private CustomResult insert(@Valid MaterialReceive materialReceive, BindingResult bindingResult)
+	public CustomResult insert(@Valid MaterialReceive materialReceive, BindingResult bindingResult)
 			throws Exception {
 		CustomResult result;
 		if(bindingResult.hasErrors()){
@@ -75,7 +75,7 @@ public class MaterialReceiveController {
 	
 	@RequestMapping(value="/update")
 	@ResponseBody
-	private CustomResult update(@Valid MaterialReceive materialReceive, BindingResult bindingResult)
+	public CustomResult update(@Valid MaterialReceive materialReceive, BindingResult bindingResult)
 			throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -86,7 +86,7 @@ public class MaterialReceiveController {
 	
 	@RequestMapping(value="/update_all")
 	@ResponseBody
-	private CustomResult updateAll(@Valid MaterialReceive materialReceive, BindingResult bindingResult)
+	public CustomResult updateAll(@Valid MaterialReceive materialReceive, BindingResult bindingResult)
 			throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -97,7 +97,7 @@ public class MaterialReceiveController {
 	
 	@RequestMapping(value="/update_note")
 	@ResponseBody
-	private CustomResult updateNote(@Valid MaterialReceive materialReceive, BindingResult bindingResult)
+	public CustomResult updateNote(@Valid MaterialReceive materialReceive, BindingResult bindingResult)
 			throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -108,14 +108,14 @@ public class MaterialReceiveController {
 	
 	@RequestMapping(value="/delete")
 	@ResponseBody
-	private CustomResult delete(String id) throws Exception {
+	public CustomResult delete(String id) throws Exception {
 		CustomResult result = materialReceiveService.delete(id);
 		return result;
 	}
 	
 	@RequestMapping(value="/delete_batch")
 	@ResponseBody
-	private CustomResult deleteBatch(String[] ids) throws Exception {
+	public CustomResult deleteBatch(String[] ids) throws Exception {
 		CustomResult result = materialReceiveService.deleteBatch(ids);
 		return result;
 	}

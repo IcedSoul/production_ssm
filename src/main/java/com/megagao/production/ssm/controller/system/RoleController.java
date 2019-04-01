@@ -67,7 +67,7 @@ public class RoleController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	@ResponseBody
-	private CustomResult insert(@Valid SysRole role, BindingResult bindingResult) throws Exception {
+	public CustomResult insert(@Valid SysRole role, BindingResult bindingResult) throws Exception {
 		CustomResult result;
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -85,14 +85,14 @@ public class RoleController {
 	
 	@RequestMapping(value="/update")
 	@ResponseBody
-	private CustomResult update(SysRole role) throws Exception {
+	public CustomResult update(SysRole role) throws Exception {
 		CustomResult result = roleService.update(role);
 		return result;
 	}
 	
 	@RequestMapping(value="/update_all")
 	@ResponseBody
-	private CustomResult updateAll(@Valid SysRole role, BindingResult bindingResult) throws Exception {
+	public CustomResult updateAll(@Valid SysRole role, BindingResult bindingResult) throws Exception {
 		CustomResult result;
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -110,14 +110,14 @@ public class RoleController {
 	
 	@RequestMapping(value="/delete")
 	@ResponseBody
-	private CustomResult delete(String id) throws Exception {
+	public CustomResult delete(String id) throws Exception {
 		CustomResult result = roleService.delete(id);
 		return result;
 	}
 	
 	@RequestMapping(value="/delete_batch")
 	@ResponseBody
-	private CustomResult deleteBatch(String[] ids) throws Exception {
+	public CustomResult deleteBatch(String[] ids) throws Exception {
 		CustomResult result = roleService.deleteBatch(ids);
 		return result;
 	}

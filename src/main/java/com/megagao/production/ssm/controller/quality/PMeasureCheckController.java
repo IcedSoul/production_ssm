@@ -76,7 +76,7 @@ public class PMeasureCheckController {
 	 */
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	@ResponseBody
-	private CustomResult insert(@Valid ProcessMeasureCheck processMeasureCheck, BindingResult bindingResult)
+	public CustomResult insert(@Valid ProcessMeasureCheck processMeasureCheck, BindingResult bindingResult)
 			throws Exception {
 		CustomResult result;
 		if(bindingResult.hasErrors()){
@@ -89,7 +89,7 @@ public class PMeasureCheckController {
 	
 	@RequestMapping(value="/update_all")
 	@ResponseBody
-	private CustomResult updateAll(@Valid ProcessMeasureCheck processMeasureCheck, BindingResult bindingResult)
+	public CustomResult updateAll(@Valid ProcessMeasureCheck processMeasureCheck, BindingResult bindingResult)
 			throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -100,7 +100,7 @@ public class PMeasureCheckController {
 	
 	@RequestMapping(value="/update_note")
 	@ResponseBody
-	private CustomResult updateNote(@Valid ProcessMeasureCheck processMeasureCheck, BindingResult bindingResult) 
+	public CustomResult updateNote(@Valid ProcessMeasureCheck processMeasureCheck, BindingResult bindingResult)
 			throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -111,7 +111,7 @@ public class PMeasureCheckController {
 	
 	@RequestMapping(value="/delete_batch")
 	@ResponseBody
-	private CustomResult deleteBatch(String[] ids) throws Exception {
+	public CustomResult deleteBatch(String[] ids) throws Exception {
 		System.out.println(ids);
 		CustomResult result = pMeasureCheckService.deleteBatch(ids);
 		return result;

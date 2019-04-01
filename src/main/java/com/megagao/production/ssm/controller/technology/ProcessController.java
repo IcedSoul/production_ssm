@@ -62,7 +62,7 @@ public class ProcessController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	@ResponseBody
-	private CustomResult insert(@Valid Process process, BindingResult bindingResult) throws Exception {
+	public CustomResult insert(@Valid Process process, BindingResult bindingResult) throws Exception {
 		CustomResult result;
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -78,7 +78,7 @@ public class ProcessController {
 
 	@RequestMapping(value="/update_all")
 	@ResponseBody
-	private CustomResult updateAll(@Valid Process process, BindingResult bindingResult) throws Exception {
+	public CustomResult updateAll(@Valid Process process, BindingResult bindingResult) throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
 			return CustomResult.build(100, fieldError.getDefaultMessage());
@@ -88,7 +88,7 @@ public class ProcessController {
 	
 	@RequestMapping(value="/delete_batch")
 	@ResponseBody
-	private CustomResult deleteBatch(String[] ids) throws Exception {
+	public CustomResult deleteBatch(String[] ids) throws Exception {
 		CustomResult result = processService.deleteBatch(ids);
 		return result;
 	}

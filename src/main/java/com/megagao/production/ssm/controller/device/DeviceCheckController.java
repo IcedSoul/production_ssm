@@ -63,7 +63,7 @@ public class DeviceCheckController {
 	
 	@RequestMapping(value="/update")
 	@ResponseBody
-	private CustomResult update(@Valid DeviceCheck deviceCheck, BindingResult bindingResult) throws Exception {
+	public CustomResult update(@Valid DeviceCheck deviceCheck, BindingResult bindingResult) throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
 			return CustomResult.build(100, fieldError.getDefaultMessage());
@@ -73,7 +73,7 @@ public class DeviceCheckController {
 	
 	@RequestMapping(value="/update_note")
 	@ResponseBody
-	private CustomResult updateNote(@Valid DeviceCheck deviceCheck, BindingResult bindingResult) throws Exception {
+	public CustomResult updateNote(@Valid DeviceCheck deviceCheck, BindingResult bindingResult) throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
 			return CustomResult.build(100, fieldError.getDefaultMessage());
@@ -83,7 +83,7 @@ public class DeviceCheckController {
 	
 	@RequestMapping(value="/delete_batch")
 	@ResponseBody
-	private CustomResult deleteBatch(String[] ids) throws Exception {
+	public CustomResult deleteBatch(String[] ids) throws Exception {
 		CustomResult result = deviceCheckService.deleteBatch(ids);
 		return result;
 	}

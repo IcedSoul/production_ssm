@@ -72,7 +72,7 @@ public class PCountCheckController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	@ResponseBody
-	private CustomResult insert(@Valid ProcessCountCheck processCountCheck, BindingResult bindingResult)
+	public CustomResult insert(@Valid ProcessCountCheck processCountCheck, BindingResult bindingResult)
 			throws Exception {
 		CustomResult result;
 		if(bindingResult.hasErrors()){
@@ -85,14 +85,14 @@ public class PCountCheckController {
 	
 	@RequestMapping(value="/update")
 	@ResponseBody
-	private CustomResult update(@Valid ProcessCountCheck processCountCheck, BindingResult bindingResult)
+	public CustomResult update(@Valid ProcessCountCheck processCountCheck, BindingResult bindingResult)
 			throws Exception {
 		return null;
 	}
 	
 	@RequestMapping(value="/update_all")
 	@ResponseBody
-	private CustomResult updateAll(@Valid ProcessCountCheck processCountCheck, BindingResult bindingResult)
+	public CustomResult updateAll(@Valid ProcessCountCheck processCountCheck, BindingResult bindingResult)
 			throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -103,7 +103,7 @@ public class PCountCheckController {
 	
 	@RequestMapping(value="/update_note")
 	@ResponseBody
-	private CustomResult updateNote(@Valid ProcessCountCheck processCountCheck, BindingResult bindingResult)
+	public CustomResult updateNote(@Valid ProcessCountCheck processCountCheck, BindingResult bindingResult)
 			throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -114,13 +114,13 @@ public class PCountCheckController {
 	
 	@RequestMapping(value="/delete")
 	@ResponseBody
-	private CustomResult delete(String id) throws Exception {
+	public CustomResult delete(String id) throws Exception {
 		return null;
 	}
 	
 	@RequestMapping(value="/delete_batch")
 	@ResponseBody
-	private CustomResult deleteBatch(String[] ids) throws Exception {
+	public CustomResult deleteBatch(String[] ids) throws Exception {
 		System.out.println(ids);
 		CustomResult result = pCountCheckService.deleteBatch(ids);
 		return result;

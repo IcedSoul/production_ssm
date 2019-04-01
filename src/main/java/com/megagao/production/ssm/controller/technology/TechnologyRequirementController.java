@@ -68,7 +68,7 @@ public class TechnologyRequirementController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	@ResponseBody
-	private CustomResult insert(@Valid TechnologyRequirement technologyRequirement, BindingResult bindingResult)
+	public CustomResult insert(@Valid TechnologyRequirement technologyRequirement, BindingResult bindingResult)
 			throws Exception {
 		CustomResult result;
 		if(bindingResult.hasErrors()){
@@ -85,7 +85,7 @@ public class TechnologyRequirementController {
 
 	@RequestMapping(value="/update_all")
 	@ResponseBody
-	private CustomResult updateAll(@Valid TechnologyRequirement technologyRequirement, BindingResult bindingResult)
+	public CustomResult updateAll(@Valid TechnologyRequirement technologyRequirement, BindingResult bindingResult)
 			throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -96,7 +96,7 @@ public class TechnologyRequirementController {
 
 	@RequestMapping(value="/update_requirement")
 	@ResponseBody
-	private CustomResult updateNote(@Valid TechnologyRequirement technologyRequirement, BindingResult bindingResult)
+	public CustomResult updateNote(@Valid TechnologyRequirement technologyRequirement, BindingResult bindingResult)
 			throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -107,7 +107,7 @@ public class TechnologyRequirementController {
 
 	@RequestMapping(value="/delete_batch")
 	@ResponseBody
-	private CustomResult deleteBatch(String[] ids) throws Exception {
+	public CustomResult deleteBatch(String[] ids) throws Exception {
 		CustomResult result = technologyRequirementService.deleteBatch(ids);
 		return result;
 	}

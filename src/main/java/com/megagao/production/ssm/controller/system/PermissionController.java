@@ -64,35 +64,35 @@ public class PermissionController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	@ResponseBody
-	private CustomResult insert(SysRolePermission sysRolePermission) throws Exception {
+	public CustomResult insert(SysRolePermission sysRolePermission) throws Exception {
 		CustomResult result = permissionService.insert(sysRolePermission);
 		return result;
 	}
 	
 	@RequestMapping(value="/update")
 	@ResponseBody
-	private CustomResult update(SysRolePermission sysRolePermission) throws Exception {
+	public CustomResult update(SysRolePermission sysRolePermission) throws Exception {
 		CustomResult result = permissionService.update(sysRolePermission);
 		return result;
 	}
 	
 	@RequestMapping(value="/update_by_roleid")
 	@ResponseBody
-	private CustomResult updateByRoleId(String roleId, String permission) throws Exception {
+	public CustomResult updateByRoleId(String roleId, String permission) throws Exception {
 		CustomResult result = permissionService.updateByRoleId(roleId, permission);
 		return result;
 	}
 	
 	@RequestMapping(value="/update_all")
 	@ResponseBody
-	private CustomResult updateAll(SysRolePermission sysRolePermission) throws Exception {
+	public CustomResult updateAll(SysRolePermission sysRolePermission) throws Exception {
 		CustomResult result = permissionService.updateAll(sysRolePermission);
 		return result;
 	}
 	
 	@RequestMapping(value="/delete")
 	@ResponseBody
-	private CustomResult delete(String id) throws Exception {
+	public CustomResult delete(String id) throws Exception {
 		CustomResult result = permissionService.delete(id);
 		return result;
 	}

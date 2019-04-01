@@ -63,7 +63,7 @@ public class MaterialConsumeController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	@ResponseBody
-	private CustomResult insert(@Valid MaterialConsume materialConsume, BindingResult bindingResult)
+	public CustomResult insert(@Valid MaterialConsume materialConsume, BindingResult bindingResult)
 			throws Exception {
 		CustomResult result;
 		if(bindingResult.hasErrors()){
@@ -80,7 +80,7 @@ public class MaterialConsumeController {
 	
 	@RequestMapping(value="/update")
 	@ResponseBody
-	private CustomResult update(@Valid MaterialConsume materialConsume, BindingResult bindingResult)
+	public CustomResult update(@Valid MaterialConsume materialConsume, BindingResult bindingResult)
 			throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -91,7 +91,7 @@ public class MaterialConsumeController {
 	
 	@RequestMapping(value="/update_all")
 	@ResponseBody
-	private CustomResult updateAll(@Valid MaterialConsume materialConsume, BindingResult bindingResult)
+	public CustomResult updateAll(@Valid MaterialConsume materialConsume, BindingResult bindingResult)
 			throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -102,7 +102,7 @@ public class MaterialConsumeController {
 	
 	@RequestMapping(value="/update_note")
 	@ResponseBody
-	private CustomResult updateNote(@Valid MaterialConsume materialConsume, BindingResult bindingResult)
+	public CustomResult updateNote(@Valid MaterialConsume materialConsume, BindingResult bindingResult)
 			throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -113,14 +113,14 @@ public class MaterialConsumeController {
 	
 	@RequestMapping(value="/delete")
 	@ResponseBody
-	private CustomResult delete(String id) throws Exception {
+	public CustomResult delete(String id) throws Exception {
 		CustomResult result = materialConsumeService.delete(id);
 		return result;
 	}
 	
 	@RequestMapping(value="/delete_batch")
 	@ResponseBody
-	private CustomResult deleteBatch(String[] ids) throws Exception {
+	public CustomResult deleteBatch(String[] ids) throws Exception {
 		System.out.println(ids);
 		CustomResult result = materialConsumeService.deleteBatch(ids);
 		return result;

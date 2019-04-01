@@ -63,7 +63,7 @@ public class TechnologyController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	@ResponseBody
-	private CustomResult insert(@Valid Technology technology, BindingResult bindingResult) throws Exception {
+	public CustomResult insert(@Valid Technology technology, BindingResult bindingResult) throws Exception {
 		CustomResult result;
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
@@ -79,7 +79,7 @@ public class TechnologyController {
 
 	@RequestMapping(value="/update_all")
 	@ResponseBody
-	private CustomResult updateAll(@Valid Technology technology, BindingResult bindingResult) throws Exception {
+	public CustomResult updateAll(@Valid Technology technology, BindingResult bindingResult) throws Exception {
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
 			return CustomResult.build(100, fieldError.getDefaultMessage());
@@ -89,7 +89,7 @@ public class TechnologyController {
 	
 	@RequestMapping(value="/delete_batch")
 	@ResponseBody
-	private CustomResult deleteBatch(String[] ids) throws Exception {
+	public CustomResult deleteBatch(String[] ids) throws Exception {
 		CustomResult result = technologyService.deleteBatch(ids);
 		return result;
 	}
