@@ -98,5 +98,7 @@
 		<aop:pointcut expression="execution(* com.megagao.production.ssm.service.*.*(..))" id="transactionPointCut"/>
 		<!-- 增强，进行事务控制 Advisor -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="transactionPointCut"/>
+		<!--<aop:advisor advice-ref="opEMII" pointcut="execution(public * com.megagao.production.ssm..*.*(..))"/>-->
 	</aop:config>
+	<import resource="kieker-aop.xml"/>
 </beans>

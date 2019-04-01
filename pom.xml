@@ -189,11 +189,11 @@
 	   <version>4.3.0.Final</version>
 	</dependency>
 	<!-- 其他 -->	
-  	<dependency>
-	    <groupId>org.aspectj</groupId>
-	    <artifactId>aspectjweaver</artifactId>
-	    <version>1.6.11</version>
-	</dependency>
+  	<!--<dependency>-->
+	    <!--<groupId>org.aspectj</groupId>-->
+	    <!--<artifactId>aspectjweaver</artifactId>-->
+	    <!--<version>1.6.11</version>-->
+	<!--</dependency>-->
 	<dependency>
 	    <groupId>javax.validation</groupId>
 	    <artifactId>validation-api</artifactId>
@@ -203,6 +203,20 @@
 		  <groupId>com.google.guava</groupId>
 		  <artifactId>guava</artifactId>
 		  <version>14.0-rc2</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>org.aspectj</groupId>
+		  <artifactId>aspectjweaver</artifactId>
+		  <version>1.9.2</version>
+		  <scope>runtime</scope>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>net.kieker-monitoring</groupId>
+		  <artifactId>kieker</artifactId>
+		  <version>1.13</version>
+		  <scope>runtime</scope>
 	  </dependency>
   </dependencies>
 

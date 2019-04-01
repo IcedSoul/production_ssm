@@ -14,9 +14,13 @@
 
 	<!-- 注解驱动 -->
 	<mvc:annotation-driven  conversion-service="conversionService" validator="validator"/>
-    
+
+	<aop:aspectj-autoproxy  proxy-target-class="true"/>
+	<bean id="opEMII" class="kieker.monitoring.probe.spring.executions.OperationExecutionMethodInvocationInterceptor" />
 	<!-- 开启aop，对类代理 -->
-	<aop:config proxy-target-class="true"></aop:config>
+	<aop:config>
+		<aop:advisor advice-ref="opEMII" pointcut="execution(* com.megagao.production.ssm.controller..*.*(..))"/>
+	</aop:config>
 	
 	<!-- 使用spring组件扫描 -->
 	<context:component-scan base-package="com.megagao.production.ssm.controller" />

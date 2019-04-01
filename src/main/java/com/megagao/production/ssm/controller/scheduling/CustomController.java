@@ -62,7 +62,7 @@ public class CustomController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	@ResponseBody
-	private CustomResult insert(@Valid Custom custom, BindingResult bindingResult) throws Exception {
+	public CustomResult insert(@Valid Custom custom, BindingResult bindingResult) throws Exception {
 		CustomResult result;
 		if(bindingResult.hasErrors()){
 			FieldError fieldError = bindingResult.getFieldError();
