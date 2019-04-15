@@ -93,7 +93,7 @@
 	</tx:advice>
 
 	<!-- 切面 -->
-	<aop:config>
+	<aop:config proxy-target-class="true">
 		<!-- 切点 管理所有Service的方法 -->
 		<aop:pointcut expression="execution(* com.megagao.production.ssm.service.*.*(..))" id="transactionPointCut"/>
 		<!-- 增强，进行事务控制 Advisor -->

@@ -204,6 +204,13 @@
 		  <artifactId>guava</artifactId>
 		  <version>14.0-rc2</version>
 	  </dependency>
+
+	  <dependency>
+		  <groupId>net.kieker-monitoring</groupId>
+		  <artifactId>kieker</artifactId>
+		  <version>1.13</version>
+		  <classifier>aspectj</classifier>
+	  </dependency>
   </dependencies>
 
   <build>
